@@ -1,0 +1,33 @@
+from fastapi import FastAPI
+from datetime import datetime
+
+
+# Creating the object the FastAPI class.
+app = FastAPI()
+
+
+
+@app.get("/")
+def greet():
+    print("Order service is beign called !!")
+    return {
+        "message" : "This service will shown your preivous order :) !!",
+        "time" : datetime.now().datetime()
+    }
+
+
+@app.get("/get-orders")
+def get_orders():
+    print("Order service is beign called !!")
+    return {
+        "message" : "This is get-orders route",
+        "time" : datetime.now().datetime()
+    }
+
+
+PostgreSQL runs on 5431 (host) → 5432 (container).
+MongoDB runs on 27018 (host) → 27017 (container).
+
+
+#Improvement in the authentication system.
+1. add the refresh token into the database at time of registration.

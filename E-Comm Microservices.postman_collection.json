@@ -1,0 +1,1309 @@
+{
+	"info": {
+		"_postman_id": "2f440686-1843-488f-b9c6-e86224fd86bc",
+		"name": "E-Comm Microservices",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33860294",
+		"_collection_link": "https://team-nodejs.postman.co/workspace/Team-Workspace~50ed4975-5509-47d5-8ce8-b0917d95f0bc/collection/33860294-2f440686-1843-488f-b9c6-e86224fd86bc?action=share&source=collection_link&creator=33860294"
+	},
+	"item": [
+		{
+			"name": "Authentication Services",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"simhardrinagaraju@gmail.com\",\r\n    \"password\":\"thisisthepassword\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/auth/login",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"sbnraju@gmail.com\",\r\n    \"password\":\"thisispass\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/auth/login",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "set-cookie",
+									"value": "accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNibnJhanVAZ21haWwuY29tIiwibmFtZSI6InNibi1yYWp1IiwiaWF0IjoxNzU3MDY3NTc3LCJleHAiOjE3NTcwNjc4Nzd9.22uU5DK2PcPbpGxiE6ucZRzAPTsJ2edWiRez4kzpLWc; Path=/"
+								},
+								{
+									"key": "set-cookie",
+									"value": "refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNibnJhanVAZ21haWwuY29tIiwibmFtZSI6InNibi1yYWp1IiwiaWF0IjoxNzU3MDY3NTc3LCJleHAiOjE3NTc0OTk1Nzd9.1aPgLR1c7eX-An_gU2UNmqUl7wVzLEXNAnSk8KqlwBk; Path=/"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "46"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"2e-2xjBG16aZzWeYvxfb9r+chSXLHc\""
+								},
+								{
+									"key": "date",
+									"value": "Fri, 05 Sep 2025 10:19:37 GMT"
+								},
+								{
+									"key": "connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Login successfull\"\n}"
+						},
+						{
+							"name": "Password Incorrect",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"sbnraju@gmail.com\",\r\n    \"password\":\"thisispasss\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/auth/login",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "48"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"30-xS+0RVCY/8/Qiz5rUbcEUtzQQxA\""
+								},
+								{
+									"key": "date",
+									"value": "Fri, 05 Sep 2025 10:20:05 GMT"
+								},
+								{
+									"key": "connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"message\": \"password incorrect\"\n}"
+						},
+						{
+							"name": "User Not Found",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"sbnraaju@gmail.com\",\r\n    \"password\":\"thisispasss\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/auth/login",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "54"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"36-ge4I8mJo7fkOog2iqpRRKTMKauQ\""
+								},
+								{
+									"key": "date",
+									"value": "Fri, 05 Sep 2025 10:20:20 GMT"
+								},
+								{
+									"key": "connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"message\": \"User does't not exists !\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstname\":\"sbn\",\r\n    \"lastname\":\"raju\",\r\n    \"email\":\"simhardrinagaraju@gmail.com\",\r\n    \"password\":\"thisisthepassword\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/auth/register",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "User Exists",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"firstname\":\"sbn\",\r\n    \"lastname\":\"raju\",\r\n    \"email\":\"sbnraju@gmail.com\",\r\n    \"password\":\"thisispass\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/auth/register",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"auth",
+										"register"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "49"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"31-WKEMg8zALB1Ko0WjUHi/6RBGHVc\""
+								},
+								{
+									"key": "date",
+									"value": "Fri, 05 Sep 2025 10:21:44 GMT"
+								},
+								{
+									"key": "connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"message\": \"User already exists\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Verify Mail",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"sbnraju3@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/auth/verify-email",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"auth",
+								"verify-email"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Successfull",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\" : \"simhardrinagaraju@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/auth/verify-email",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"auth",
+										"verify-email"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "52"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"34-CmanGpgIuP+ti/AvBLEZB/NCmZ0\""
+								},
+								{
+									"key": "date",
+									"value": "Fri, 05 Sep 2025 11:03:31 GMT"
+								},
+								{
+									"key": "connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Email sent successfully\"\n}"
+						},
+						{
+							"name": "User Not Found",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\" : \"simhardrinagarasju@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/auth/verify-email",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"auth",
+										"verify-email"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "48"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"30-xL0MB8HjN4/nF81cSRkuXfQEdsc\""
+								},
+								{
+									"key": "date",
+									"value": "Fri, 05 Sep 2025 11:11:38 GMT"
+								},
+								{
+									"key": "connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"message\": \"User does't exists\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Verify OTP",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"sbnraju3@gmail.com\",\r\n    \"otp\": \"781926\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/auth/verify-otp",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"auth",
+								"verify-otp"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\" : \"simhardrinagaraju@gmail.com\",\r\n    \"otp\": \"540620\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/auth/verify-otp",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"auth",
+										"verify-otp"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "55"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"37-ovRHKvOMZjksRJAIU0GsBnaW+T8\""
+								},
+								{
+									"key": "date",
+									"value": "Fri, 05 Sep 2025 11:17:47 GMT"
+								},
+								{
+									"key": "connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"OTP validation successfull\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Forget Password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"newPassword\" : \"thisisthepassword\",\r\n    \"email\": \"sbnraju3@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/auth/forget-password",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"auth",
+								"forget-password"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "User Not Found",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"newPassword\" : \"thisisthepassword\",\r\n    \"email\": \"simhardrinagaraju@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/auth/forget-password",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"auth",
+										"forget-password"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "51"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"33-7RZd4qXyYXL//QodzjgTnTxO56I\""
+								},
+								{
+									"key": "date",
+									"value": "Fri, 05 Sep 2025 11:27:40 GMT"
+								},
+								{
+									"key": "connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"message\": \"Internal Server Error\"\n}"
+						},
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"newPassword\" : \"thisisthepassword\",\r\n    \"email\": \"simhardrinagaraju@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/auth/forget-password",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"auth",
+										"forget-password"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "57"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"39-iZhplRtQw9zI/Lo0WTzhCmI5jco\""
+								},
+								{
+									"key": "date",
+									"value": "Fri, 05 Sep 2025 11:28:50 GMT"
+								},
+								{
+									"key": "connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"password changed successfull\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Profile Update",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "profile_img",
+									"type": "file",
+									"src": "postman-cloud:///1ef26826-e2c5-4da0-adfb-9640228fb930"
+								},
+								{
+									"key": "email",
+									"value": "sbnraju3@gmail.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseURL}}/auth/user/edit-profile",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"auth",
+								"user",
+								"edit-profile"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "profile_img",
+											"type": "file",
+											"src": "postman-cloud:///1ef26826-e2c5-4da0-adfb-9640228fb930"
+										},
+										{
+											"key": "email",
+											"value": "sbnraju3@gmail.com",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseURL}}/auth/user/edit-profile",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"auth",
+										"user",
+										"edit-profile"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "62"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"3e-PhPh/L02ueEdGH90AiH/2OiR0U0\""
+								},
+								{
+									"key": "date",
+									"value": "Fri, 05 Sep 2025 12:15:57 GMT"
+								},
+								{
+									"key": "connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Profile image updated successfull\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Item Listing",
+			"item": [
+				{
+					"name": "Add Item",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Genes Women",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "This is the denim jenes for men and women",
+									"type": "text"
+								},
+								{
+									"key": "tag",
+									"value": "fit-style",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "1299",
+									"type": "text"
+								},
+								{
+									"key": "quantity",
+									"value": "100",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "WOMEN_WEARS",
+									"type": "text"
+								},
+								{
+									"key": "subcategory",
+									"value": "PANTS",
+									"type": "text"
+								},
+								{
+									"key": "item_imgs",
+									"type": "file",
+									"src": [
+										"postman-cloud:///1ef26826-e2c5-4da0-adfb-9640228fb930",
+										"postman-cloud:///1ef23c5e-29a0-4990-bf63-3a00a2abeacb",
+										"postman-cloud:///1ef2575d-88fa-4a70-a8e5-b37b2ed7e5f5"
+									]
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseURL}}/orders-listing/add-items",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"orders-listing",
+								"add-items"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Genes Mens",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "This is the denim jenes for men and women",
+											"type": "text"
+										},
+										{
+											"key": "tag",
+											"value": "baggy-style",
+											"type": "text"
+										},
+										{
+											"key": "price",
+											"value": "299",
+											"type": "text"
+										},
+										{
+											"key": "quantity",
+											"value": "10",
+											"type": "text"
+										},
+										{
+											"key": "category",
+											"value": "MENS_WEARS",
+											"type": "text"
+										},
+										{
+											"key": "subcategory",
+											"value": "PANTS",
+											"type": "text"
+										},
+										{
+											"key": "item_imgs",
+											"type": "file",
+											"src": [
+												"postman-cloud:///1ef26826-e2c5-4da0-adfb-9640228fb930",
+												"postman-cloud:///1ef23c5e-29a0-4990-bf63-3a00a2abeacb",
+												"postman-cloud:///1ef2575d-88fa-4a70-a8e5-b37b2ed7e5f5"
+											]
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/orders-listing/add-items",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"orders-listing",
+										"add-items"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "52"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"34-rBxOMmFe9ijhKYzr5S5LhW4xAQI\""
+								},
+								{
+									"key": "date",
+									"value": "Sat, 06 Sep 2025 07:41:32 GMT"
+								},
+								{
+									"key": "connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Item added successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Active Item",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/orders-listing/active-items?id=37706e7e-8132-4469-bcdc-3335bac15969",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"orders-listing",
+								"active-items"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "37706e7e-8132-4469-bcdc-3335bac15969"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Activate Item",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/orders-listing/active-items?id=37706e7e-8132-4469-bcdc-3335bac15969",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"orders-listing",
+										"active-items"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "37706e7e-8132-4469-bcdc-3335bac15969"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "593"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"251-9TjTXeySiSH+hbt4Duo3lGKICz0\""
+								},
+								{
+									"key": "date",
+									"value": "Sat, 06 Sep 2025 08:22:28 GMT"
+								},
+								{
+									"key": "connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": {\n        \"id\": \"37706e7e-8132-4469-bcdc-3335bac15969\",\n        \"name\": \"Genes Women\",\n        \"description\": \"This is the denim jenes for men and women\",\n        \"image\": [\n            \"http://localhost:8082/uploads/1757146443373~image1.jpg\",\n            \"http://localhost:8082/uploads/1757146443374~Madam_Bomma.jpg\",\n            \"http://localhost:8082/uploads/1757146443375~COLLASYN.png\"\n        ],\n        \"tag\": \"fit-style\",\n        \"slug\": \"genes-women-fit-style-pants\",\n        \"price\": 1299,\n        \"isActive\": true,\n        \"category\": \"WOMEN_WEARS\",\n        \"subcategory\": \"PANTS\",\n        \"quantity\": 100,\n        \"created_at\": \"2025-09-06T08:14:03.382Z\",\n        \"updated_at\": \"2025-09-06T08:22:28.609Z\"\n    },\n    \"message\": \"Item is now active\"\n}"
+						},
+						{
+							"name": "Inactive Item",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/orders-listing/active-items?id=37706e7e-8132-4469-bcdc-3335bac15969",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"orders-listing",
+										"active-items"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "37706e7e-8132-4469-bcdc-3335bac15969"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "596"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"254-2c8uEaABNIrLyyo+qQ6F5Nr17tY\""
+								},
+								{
+									"key": "date",
+									"value": "Sat, 06 Sep 2025 08:22:58 GMT"
+								},
+								{
+									"key": "connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": {\n        \"id\": \"37706e7e-8132-4469-bcdc-3335bac15969\",\n        \"name\": \"Genes Women\",\n        \"description\": \"This is the denim jenes for men and women\",\n        \"image\": [\n            \"http://localhost:8082/uploads/1757146443373~image1.jpg\",\n            \"http://localhost:8082/uploads/1757146443374~Madam_Bomma.jpg\",\n            \"http://localhost:8082/uploads/1757146443375~COLLASYN.png\"\n        ],\n        \"tag\": \"fit-style\",\n        \"slug\": \"genes-women-fit-style-pants\",\n        \"price\": 1299,\n        \"isActive\": false,\n        \"category\": \"WOMEN_WEARS\",\n        \"subcategory\": \"PANTS\",\n        \"quantity\": 100,\n        \"created_at\": \"2025-09-06T08:14:03.382Z\",\n        \"updated_at\": \"2025-09-06T08:22:58.252Z\"\n    },\n    \"message\": \"Item is now inactive\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Fetch Items",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/orders-listing/fetch-items?page=1&limit=10",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"orders-listing",
+								"fetch-items"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/orders-listing/fetch-items?page=1&limit=10",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"orders-listing",
+										"fetch-items"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "612"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"264-lMzyIoH7eK21uV24sY2Z8vtqAco\""
+								},
+								{
+									"key": "date",
+									"value": "Sat, 06 Sep 2025 08:08:24 GMT"
+								},
+								{
+									"key": "connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": [\n        {\n            \"id\": \"139aefc6-5eb4-422e-ab0b-3e7887c8c982\",\n            \"name\": \"Genes Mens\",\n            \"description\": \"This is the denim jenes for men and women\",\n            \"image\": [\n                \"http://localhost:8082/uploads/1757144492762~image1.jpg\",\n                \"http://localhost:8082/uploads/1757144492763~Madam_Bomma.jpg\",\n                \"http://localhost:8082/uploads/1757144492764~COLLASYN.png\"\n            ],\n            \"tag\": \"baggy-style\",\n            \"slug\": \"genes-mens-baggy-style-pants\",\n            \"price\": 299,\n            \"isActive\": false,\n            \"category\": \"MENS_WEARS\",\n            \"subcategory\": \"PANTS\",\n            \"quantity\": 10,\n            \"created_at\": \"2025-09-06T07:41:32.828Z\",\n            \"updated_at\": \"2025-09-06T07:41:32.828Z\"\n        }\n    ],\n    \"metadata\": {\n        \"page\": 1,\n        \"limit\": 10,\n        \"totalPages\": 1\n    }\n}"
+						},
+						{
+							"name": "Iteams not found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/orders-listing/fetch-items?page=1&limit=10&category=MENS_WEARS&subcategory=SHOES",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"orders-listing",
+										"fetch-items"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "10"
+										},
+										{
+											"key": "category",
+											"value": "MENS_WEARS"
+										},
+										{
+											"key": "subcategory",
+											"value": "SHOES"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "126"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"7e-qdx3TPt4DnmAC2cOI/mOXdNs5A0\""
+								},
+								{
+									"key": "date",
+									"value": "Sat, 06 Sep 2025 08:09:13 GMT"
+								},
+								{
+									"key": "connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"message\": \"No items found for the applied filters\",\n    \"data\": {},\n    \"metadata\": {\n        \"page\": 1,\n        \"limit\": 10,\n        \"totalPages\": 0\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Order Placing",
+			"item": [
+				{
+					"name": "Orders Placing",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"tranxId\": \"TXN987654\",\r\n  \"address\": {\r\n    \"street\": \"123 MG Road\",\r\n    \"city\": \"Bangalore\",\r\n    \"zipCode\": \"560001\"\r\n  },\r\n  \"orderName\": \"Running Shoes\",\r\n  \"phone_no\": 9876543210,\r\n  \"payment_status\": \"paid\",\r\n  \"payment_method\": \"UPI\",\r\n  \"email\": \"customer@example.com\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/orders-placing/items/post?productId=139aefc6-5eb4-422e-ab0b-3e7887c8c982",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"orders-placing",
+								"items",
+								"post"
+							],
+							"query": [
+								{
+									"key": "productId",
+									"value": "139aefc6-5eb4-422e-ab0b-3e7887c8c982"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Fetch the orders",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{baseURL}}/orders-placing/items/fetch",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"orders-placing",
+						"items",
+						"fetch"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "",
+			"type": "default"
+		}
+	]
+}

@@ -1,0 +1,50 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("POSTGRES_URI")
+}
+
+model Users {
+  id              Int      @id @default(autoincrement())
+  name            String
+  email           String   @unique
+  password        String
+  profile_picture String
+  created_at      DateTime @default(now())
+  updated_at      DateTime @updatedAt
+  isVerified      Boolean  @default(false)
+  oneTimePassword Int      @default(0)
+}
+
+model Items {
+  id          String       @id @db.Uuid
+  name        String
+  description String
+  image       String[]
+  tag         String
+  slug        String
+  price       Float
+  isActive    Boolean      @default(false)
+  category    Category     @default(MENS_WEARS)
+  created_at  DateTime     @default(now())
+  updated_at  DateTime
+  quantity    Int
+  subcategory Subcategory?
+}
+
+enum Category {
+  MENS_WEARS
+  WOMEN_WEARS
+  KIDS_WEAR
+}
+
+enum Subcategory {
+  PANTS
+  TSHIRTS
+  SHIRTS
+  SHOES
+  ACCESSIORIES
+}
